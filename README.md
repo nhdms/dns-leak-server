@@ -10,7 +10,11 @@
     - Server IP: 1.2.3.4
     - Domain: domain.com
     - Subdomain using for testing: sub.domain.com
-  
+  - Change to root user
+    ```
+    sudo -i
+    ```
+
   - Install nodejs: 
       ```
       curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -27,6 +31,15 @@
     # PM2, run node app
     npm install pm2 -g
     ```
+  - Set hostname 
+    ```
+    hostnamectl set-hostname ns1
+    ```
+ - Edit hosts file
+   - add this line to end of file ``` 1.2.3.4 ns1.sub.domain.com ns1 ```
+   ```
+    nano /etc/hosts
+   ```
     
 # Step 2 - Add A and NS record to DNS Management
 
