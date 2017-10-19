@@ -50,7 +50,7 @@ Type         |       Name         |       Value
  NS           |      sub            |   ns1.sub.domain.com
  
 
-# Step 3- Config nginx to handler all subdomain ends with "sub.domain.com"
+# Step 3 - Config nginx to handler all subdomain ends with "sub.domain.com"
   - Create config file */etc/nginx/sites-enabled/sub.domain.com*
     ```
     # nano /etc/nginx/sites-enabled/sub.domain.com
@@ -72,5 +72,23 @@ Type         |       Name         |       Value
         }
     }
     ```
+    - Change *server_name* and *proxy_pass*
+      - proxy_pass is address of your http server instance, this server handler all wildcard domain
+    - Restart nginx ``` service nginx restart ```
+    
+    
+ # Step 4 - Run custom dns server and http server 
+    - Create:
+      - dns_server.js file: [custom_dns_server.js](https://github.com/nhdms/dns-leak-server/blob/master/custom_dns_server.js)
+      - http_server.js file: [http_server](https://github.com/nhdms/dns-leak-server/blob/master/httpserver.js)
+     - Start app (Using PM2)
+      ```
+      pm2 start dns_server.js
+      pm2 start http_server.js
+      ```
+# Step 5 - Test
+   - Send request to this address http://*unique_string*.sub.domain.com
+   * Get all DNS server IP: [XHR](https://github.com/nhdms/dns-leak-server/blob/master/xhr-test.js)
+    
   
   
