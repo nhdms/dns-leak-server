@@ -7,11 +7,11 @@ var server = dns.createServer();
 var i = 0
 server.on('request', function (request, response) {
   var domain = request.question[0].name;
-  if (domain.endsWith('')) {
+  if (domain.endsWith('YOUR_DOMAIN_HERE')) { // sub.domain.com
     client.rpush(domain, request.address.address)
     response.answer.push(dns.A({
       name: domain,
-      address: '',
+      address: 'YOUR_VPS_IP', // 1.2.3.4
       ttl: 600
     }));
     response.send();
