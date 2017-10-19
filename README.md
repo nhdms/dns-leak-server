@@ -27,5 +27,12 @@
     # PM2, run node app
     npm install pm2 -g
     ```
+    
+# Step 2 - Add A and NS record to DNS Management
+
+Type                Name                Value
+ A                  ns1.sub           1.2.3.4           
+ NS                 sub               ns1.sub.domain.com
+ 
 
   
