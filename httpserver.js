@@ -2,7 +2,7 @@ var http = require('http');
 var redis = require("redis"),
 client = redis.createClient();
 http.createServer(function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost'); // change to your origin
   res.setHeader('Access-Control-Allow-Credentials','true')
   //  res.write('Hello World!');
   // res.end(req.headers.host);
