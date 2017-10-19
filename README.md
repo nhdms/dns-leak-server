@@ -1,5 +1,6 @@
 # How to implement a server for dnsleaktest
 
+* Replace all domain name, ip...
 # Prerequisites
   - A linux VPS with free 53 port (DNS standard port)
   - A domain with DNS Management Add Edit or Delete DNS Entries
@@ -49,4 +50,27 @@ Type         |       Name         |       Value
  NS           |      sub            |   ns1.sub.domain.com
  
 
+# Step 3- Config nginx to handler all subdomain ends with "sub.domain.com"
+  - Create config file */etc/nginx/sites-enabled/sub.domain.com*
+    ```
+    # nano /etc/nginx/sites-enabled/sub.domain.com
+    server {
+      listen 80;
+      listen [::]:80;
+      root /var/www/html;
+      index index.html index.htm index.nginx-debian.html;
+
+      server_name ~^(.*)\.sub\.domain\.com$;
+
+      location / {
+            proxy_pass http://localhost:8080;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
+    }
+    ```
+  
   
