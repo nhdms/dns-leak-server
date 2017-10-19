@@ -45,8 +45,7 @@
 
 Type         |       Name         |       Value
 ---         |       ----          |     ---
- A           |       ns1.sub       |    1.2.3.4    
- ---         |       ----          |     ---
+ A           |       ns1.sub       |    1.2.3.4   
  NS           |      sub            |   ns1.sub.domain.com
  
 
