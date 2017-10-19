@@ -78,7 +78,7 @@ Type         |       Name         |       Value
     
     
  # Step 4 - Run custom dns server and http server 
-    - Create:
+    - Create (remember to change domain in these file):
       - dns_server.js file: [custom_dns_server.js](https://github.com/nhdms/dns-leak-server/blob/master/custom_dns_server.js)
       - http_server.js file: [http_server](https://github.com/nhdms/dns-leak-server/blob/master/httpserver.js)
      - Start app (Using PM2)
