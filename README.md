@@ -50,7 +50,7 @@ Type         |       Name         |       Value
  NS           |      sub            |   ns1.sub.domain.com
  
 
-# Step 3 - Config nginx to handler all subdomain ends with "sub.domain.com"
+# Step 3 - Config nginx to handle all subdomain ends with "sub.domain.com"
   - Create config file */etc/nginx/sites-enabled/sub.domain.com*
     ```
     # nano /etc/nginx/sites-enabled/sub.domain.com
